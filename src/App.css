@@ -79,11 +79,11 @@
   font-size: 20px;
   color: #fff;
 }
-.App .twit-list .twit {
+.App .twit-list .twit, .App .twit-list .twit-none-split {
   border-top: solid 1px #aaa;
   padding: 0 30px;
 }
-.App .twit-list .twit .twit-message {
+.App .twit-list .twit .twit-message, .App .twit-list .twit-none-split .twit-message {
   padding: 5px 30px;
   background: #E7F5FD;
   position: relative;
