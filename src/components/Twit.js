@@ -1,59 +1,48 @@
 import React, { Component } from 'react';
 
 class Twit extends Component {
+  splitWith (arr, length) {
+    let chunk = '', result = [];
+    const maxCharacter = 50;
+    arr.forEach((word, index) => {
+      if (word.length > maxCharacter) {
+        window.alert(`Word has length > ${maxCharacter} chars`);
+      } else {
+        if (chunk.length === 0) {
+          chunk = word;
+        } else if (chunk.length > 0 && chunk.length < length - word.length) {
+          chunk += ' ' + word;
+          if (index === arr.length - 1) {
+            result.push(chunk);
+            chunk = '';
+          }
+        } else {
+          result.push(chunk);
+          chunk = word;
+        }
+      }
+    });
+    if (chunk.length) {
+      result.push(chunk);
+      chunk = '';
+    }
+    return result;
+  }
+
   splitMessages (message) {
-    let chunk = '', i = 1;
+    let chunk = '', i = 0;
     let result = [], oriMessage = message.split(' '), maxCharacter = 50;
     if (!message.length) {
       return result;
     }
     if (message.length > maxCharacter) {
-      oriMessage.forEach((word, index) => {
-        if (word.length > maxCharacter) {
-          window.alert('Word has length > 50 chars');
-        } else {
-          if (chunk.length === 0) {
-            chunk = word;
-          } else if (chunk.length > 0 && chunk.length < maxCharacter - word.length - 1 - 4) {
-            chunk += ' ' + word;
-            if (index === oriMessage.length - 1) {
-              result.push(chunk);
-              chunk = '';
-            }
-          } else {
-            result.push(chunk);
-            chunk = word;
-          }
-        }
-      });
+      result = this.splitWith(oriMessage, maxCharacter - 1 - 4);
     } else {
-      oriMessage.forEach((word, index) => {
-        if (word.length > maxCharacter) {
-          window.alert('Word has length > 50 chars');
-        } else {
-          if (chunk.length === 0) {
-            chunk = word;
-          } else if (chunk.length > 0 && chunk.length < maxCharacter - word.length - 1) {
-            chunk += ' ' + word;
-            if (index === oriMessage.length - 1) {
-              result.push(chunk);
-              chunk = '';
-            }
-          } else {
-            result.push(chunk);
-            chunk = word;
-          }
-        }
-      });
-    }
-    
-    if (chunk.length) {
-      result.push(chunk);
-      chunk = '';
+      result = this.splitWith(oriMessage, maxCharacter - 1);
     }
     
     for (i = 0; i < result.length; i++) {
-      if (result.length !== 1) {
+      if (result.length > 1) {
         result[i] = `${i+1}/${result.length} ${result[i]}`;
       }
     }
