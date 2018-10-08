@@ -10,7 +10,7 @@ class Twit extends Component {
     if (message.length > maxCharacter) {
       oriMessage.forEach((word, index) => {
         if (word.length > maxCharacter) {
-          throw new Error('Word has length > 50 chars');
+          window.alert('Word has length > 50 chars');
         } else {
           if (chunk.length === 0) {
             chunk = word;
@@ -29,7 +29,7 @@ class Twit extends Component {
     } else {
       oriMessage.forEach((word, index) => {
         if (word.length > maxCharacter) {
-          throw new Error('Word has length > 50 chars');
+          window.alert('Word has length > 50 chars');
         } else {
           if (chunk.length === 0) {
             chunk = word;
@@ -53,9 +53,7 @@ class Twit extends Component {
     }
     
     for (i = 0; i < result.length; i++) {
-      if (result.length === 1) {
-        result[i] = result[i];
-      } else {
+      if (result.length !== 1) {
         result[i] = `${i+1}/${result.length} ${result[i]}`;
       }
     }
