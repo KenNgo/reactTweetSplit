@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#root {
+  background-color: #fff;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.App {
+  width: 50%;
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  left: 25%;
+  text-align: left;
+}
+.App .twit-post {
+  background-color: #E7F5FD;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: right;
+}
+.App .twit-post textarea {
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 10px;
+  border: solid 1px #fff;
+}
+.App .twit-post button {
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #4AB3F4;
+}
+.App .twit-list {
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+  background-color: #1A3D54;
+}
+.App .twit-list .heading {
+  box-sizing: border-box;
+  padding: 0 30px;
+  font-size: 20px;
+  color: #fff;
+}
+.App .twit-list .twit {
+  border-top: solid 1px #aaa;
+  padding: 0 30px;
+}
+.App .twit-list .twit .twit-message {
+  padding: 5px 30px;
+  background: #E7F5FD;
+  position: relative;
+}
+.App .twit-list .twit .twit-message::before {
+  content: '';
+  padding: 14px 25px;
+  background-color: #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
